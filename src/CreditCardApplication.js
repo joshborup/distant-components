@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
-export default class CreditCardApplication extends Component {
+class CreditCardApplication extends Component {
   render() {
     const { loggedInAs, isCreditCardHolder } = this.props;
 
@@ -18,3 +19,11 @@ export default class CreditCardApplication extends Component {
     )
   }
 };
+
+const mapStateToProps = state => {
+  return{
+    loggedInAs: state.loggedInAs,
+  }
+}
+
+export default connect(mapStateToProps)(CreditCardApplication)
